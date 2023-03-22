@@ -1,6 +1,6 @@
 span.place-name {
     display: inline-block;
-    width: 70%;
+    width: 60%;
 }
 
 form.visited-form {
@@ -13,16 +13,16 @@ div.wishlist-place {
 
 label {
     display: inline-block;
-    padding-right: 8px;
+    padding-right: 10px;
 }
 
 a.nav-link {
-    margin-right: 10px;
+    margin-right: 15px;
 }
 
 #add-new-place {
-    background-color: green;
-    border: darkgreen;
+    background-color: rgb(135, 137, 250);
+    border: rgb(173, 179, 230);
 }
 
 
