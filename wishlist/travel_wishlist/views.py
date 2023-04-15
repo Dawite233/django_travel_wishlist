@@ -62,16 +62,19 @@ def place_details(request, place_pk):
         return HttpResponseForbidden()
     
     if request.method == 'POST':
-        form = TripReviewForm(request.POST, request.FILES, isinstance=place)
+        form = TripReviewForm(request.POST, request.FILES, instance=place)
         if form.is_valid():
             form.save()
-            messages.info(request, form.errors)
+            messages.info(request, 'Trip information updated!')
         else:
             messages.error(request, form.errors) # temporary, refine later
 
         return redirect('place_details', place_pk=place_pk)
     
     else: 
+        # If Get request, show place info and optional form.
+        # If place is visited, show form; if place is not visited, no form.
+
         if place.visited:
             review_form = TripReviewForm(instance=place)
             return render(request, 'travel_wishlist/place_detail.html', {'place': place, 'review_form': review_form})
